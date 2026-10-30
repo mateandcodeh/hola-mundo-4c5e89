@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        #textoSaludo {
+            color: #667eea;
+            font-size: 20px;
+            margin: 30px 0;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        button:active {
+            transform: scale(0.95);
+        }
+        
+        .contador {
+            margin-top: 20px;
+            color: #888;
+            font-size: 14px;
+        }
+    </style>
+<style id="lf-tema">html,body{background:#ffffff !important;color:#1a1a1a !important;font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif !important;font-size:16px !important}</style></head>
+<body>
+    <div class="container">
+        <h1>Mi Primera App</h1>
+        <div id="textoSaludo">Tocá el botón para empezar</div>
+        <button onclick="saludar()">Tocame 😄</button>
+        <div class="contador">Clicks: <span id="contador">0</span></div>
+    </div>
+
+    <script>
+        let clicks = 0;
+        const frases = [
+            "¡Hola! Tocaste el botón 😄",
+            "¡Otra vez! Sos insistente 😂",
+            "¡Bien ahí! Tercer click 👏",
+            "Ya van varios clicks eh 👀",
+            "Ok, me rindo. Ganaste 🏆",
+            "¿Seguimos? Dale que va 🔥"
+        ];
+        
+        function saludar() {
+            clicks++;
+            document.getElementById('contador').textContent = clicks;
+            
+            const indice = Math.min(clicks - 1, frases.length - 1);
+            document.getElementById('textoSaludo').textContent = frases[indice];
+        }
+    </script>
+</body>
+</html>
